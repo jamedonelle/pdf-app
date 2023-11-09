@@ -1,11 +1,12 @@
-'use client'
-
 import Link from "next/link"
 import MaxWidthWrapper from "./MaxWidthWrapper"
 import { buttonVariants } from "./ui/button"
-import { signIn } from "next-auth/react";
+import UserButton from "./userButton"
+import { SignOut } from "./auth-components"
+import { auth } from "auth"
 
-const NavBar = () => {
+const NavBar = async () => {
+    const session = await auth()
     return (
         <nav className='sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all'>
             <MaxWidthWrapper>
@@ -24,15 +25,17 @@ const NavBar = () => {
                                 variant: 'ghost',
                                 size: 'sm'
                             })}>Pricing</Link>
-                            {/* <Link href='/dashboard'
+                            <UserButton/>
+                            {session?.user ? (
+                            <>
+                            <Link href='/dashboard' 
                             className={buttonVariants({
                                 variant: 'ghost',
                                 size: 'sm'
-                            })}>Sign in</Link> */}
-                            <Link href='/dashboard'
-                            className={buttonVariants({
-                                size: 'sm'
-                            })}>Get Started</Link>
+                            })}>Dashboard</Link>
+                            <SignOut className={buttonVariants()}/>
+                            </>
+                            ) : (<></>)}
                         </>
                     </div>
                 </div>

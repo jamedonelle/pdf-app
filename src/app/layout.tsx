@@ -11,17 +11,17 @@ export const metadata: Metadata = {
   description: 'I will do this later lol',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
     <html lang="en">
-      <body className={cn('min-h-screen font-sans antialiased grainy', inter.className)}>
-          <NavBar/>
-          {children}
-      </body>
+        <body className={cn('min-h-screen font-sans antialiased grainy', inter.className)}>
+            <NavBar/>
+            {children}
+        </body>
     </html>
   )
 }
