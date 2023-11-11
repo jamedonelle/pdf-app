@@ -1,24 +1,8 @@
-"use client"
+import { Button } from "./ui/button";
 
-import { useState } from "react"
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
-import { Button } from "./ui/button"
-
-const UploadButton = () => {
-    const [isOpen, setIsOpen] = useState(false)
-
-    return (
-        <Dialog open={isOpen} onOpenChange={(v)=>{
-            if(!v) {
-                setIsOpen(v)
-            }
-        }}>
-            <DialogTrigger asChild>
-                <Button onClick={()=> setIsOpen(true)}>Upload PDF</Button>
-            </DialogTrigger>
-
-            <DialogContent></DialogContent>
-        </Dialog>
+const UploadButton = async () => {
+    return (    
+        <Button>Upload PDF</Button>
     )
 }
 
