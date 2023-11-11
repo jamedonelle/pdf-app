@@ -21,3 +21,9 @@ Keep both running simultaneous.
 
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Main Packages
+
+Convex -> database operations
+Clerk -> User authentication
+Edge Store or upload things(wip) -> File
